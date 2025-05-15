@@ -1,4 +1,8 @@
 package me.diegxherrera.backrouteservice.model;
 
-public class RouteTypeEnum {
+public enum RouteTypeEnum {
+    REGIONAL,
+    EXPRESS,
+    INTERNATIONAL,
+    NIGHTLY
 }

@@ -1,4 +1,4 @@
-package me.diegxherrera.exception;
+package me.diegxherrera.backrouteservice.exception;
 
 import java.util.UUID;
 

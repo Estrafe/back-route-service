@@ -1,9 +1,9 @@
 package me.diegxherrera.backrouteservice.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import me.diegxherrera.backrouteservice.model.RouteTypeEnum;
 
 import java.util.List;
@@ -13,11 +13,21 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class CreateRouteRequestDTO {
 
+    @NotBlank(message = "Route name cannot be blank")
     private String routeName;
-    private List<UUID> stationIds; // List of station IDs in this route
-    private boolean active;
-    private String description; // Optional description
-    private RouteTypeEnum routeType; // Optional route type
+
+    @NotEmpty(message = "Station IDs must not be empty")
+    private List<UUID> stationIds;
+
+    @NotNull(message = "Active must be provided")
+    private Boolean active;
+
+    private String description;
+
+    @NotNull(message = "Route type must be provided")
+    private RouteTypeEnum routeType;
 }
